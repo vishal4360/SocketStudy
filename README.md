@@ -1,6 +1,6 @@
 # Ex.No:1a  			Study of Socket Programming
 ## NAME: VISHAL.C
-## REG NO : 21222410062
+## REG NO : 212224100062
 
 
 ## Aim: 
