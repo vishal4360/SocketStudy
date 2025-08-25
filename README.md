@@ -1,4 +1,7 @@
 # Ex.No:1a  			Study of Socket Programming
+## NAME: VISHAL.C
+## REG NO : 21222410062
+
 
 ## Aim: 
 To perform a study on Socket Programming
@@ -53,6 +56,51 @@ Socket programming finds applications in various domains, including web developm
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
 
+PROGRAM:
 
+SERVER
+
+    import socket
+    HOST = '127.0.0.1'  
+    PORT = 65432       
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind((HOST, PORT))
+    server_socket.listen()
+    print(f"Server listening on {HOST}:{PORT}...")
+    conn, addr = server_socket.accept()
+    print(f"Connected by {addr}")
+    while True:
+    data = conn.recv(1024)
+    if not data:
+        break
+    print(f"Received from client: {data.decode()}")
+    conn.sendall(b"Message received by server")
+    conn.close()
+
+CLIENT
+
+
+    import socket
+    HOST = '127.0.0.1'  
+    PORT = 65432       
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((HOST, PORT))
+    message = "Hello, Server! This is Client."
+    client_socket.sendall(message.encode())
+    data = client_socket.recv(1024)
+    print(f"Received from server: {data.decode()}")
+    client_socket.close()
+
+##OUTPUT:
+
+server.py
+
+<img width="604" height="284" alt="cnexp1 1" src="https://github.com/user-attachments/assets/d77bbc98-4097-47db-91cc-cdf92da7e896" />
+
+client.py
+
+<img width="618" height="254" alt="cnexp1 2" src="https://github.com/user-attachments/assets/66eb1fb3-7066-4fe2-8aea-de0f4467438b" />
+
+ 
 ## Result:
 Thus the study of Socket Programming Completed Successfully
